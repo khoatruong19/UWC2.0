@@ -1,10 +1,18 @@
 import React from 'react';
 import Sidebar from '../../components/Sidebar';
 
-const MainLayout = () => {
+const MainLayout = ({ children }) => {
   return (
-    <div style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
+    <div
+      style={{
+        height: '100vh',
+        width: '100vw',
+        overflow: 'hidden',
+        display: 'flex',
+      }}
+    >
       <Sidebar />
+      {children}
     </div>
   );
 };
