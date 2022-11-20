@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AuthLayout from './layouts/AuthLayout';
 import MainLayout from './layouts/MainLayout';
@@ -14,6 +13,7 @@ function App() {
             const Layout = route.auth ? AuthLayout : MainLayout;
             return (
               <Route
+                key={route.path}
                 path={route.path}
                 element={
                   <Layout>

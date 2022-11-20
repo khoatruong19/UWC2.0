@@ -17,6 +17,7 @@ import {
   Cog8ToothIcon,
 } from '@heroicons/react/24/solid';
 import { Link } from 'react-router-dom';
+import { mainTextColor } from '../../utils/constants';
 
 const Sidebar = () => {
   const [activeLink, setActiveLink] = useState('Home');
@@ -72,9 +73,10 @@ const Sidebar = () => {
         {links.map((link, i) => (
           <div
             key={i}
-            className="text-success hover"
+            className="hover"
             style={{
               width: '3rem',
+              color: mainTextColor,
             }}
           >
             <Link
