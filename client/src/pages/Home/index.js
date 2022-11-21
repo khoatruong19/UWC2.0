@@ -108,7 +108,7 @@ const Home = () => {
             position: 'relative',
           }}
         >
-          <AreaMap areas={areas} area={area} />
+          <AreaMap routing areas={areas} area={area} />
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { mainGreen, mainTextColor } from '../../utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { addMCP, triggerMCPModal } from '../../store/slices/AreasSlice';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import { useMap } from 'react-leaflet';
+import { nanoid } from 'nanoid';
 
 const MCPModal = () => {
   const dispatch = useDispatch();
@@ -21,6 +21,8 @@ const MCPModal = () => {
           ...openMCPModal.data.latlng,
           address,
           maxCapacity,
+          id: nanoid(),
+          areaId: openMCPModal.data.areaId,
         },
       })
     );

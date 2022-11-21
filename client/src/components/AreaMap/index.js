@@ -14,30 +14,29 @@ import {
 import L from 'leaflet';
 import { EditControl } from 'react-leaflet-draw';
 import RoutineMachine from './RoutingMachine';
-import { addMCP, getRouteObj, saveMCPs } from '../../services/mcps';
 import { nanoid } from 'nanoid';
 import {
-  createArea,
   deleteArea,
   triggerAreaModal,
   triggerMCPModal,
+  updateMCPPos,
 } from '../../store/slices/AreasSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-const moveEndHandler = (event) => {
-  console.log(event);
-};
+// const moveEndHandler = (event) => {
+//   console.log(event);
+// };
 
-const getBoundsFromPlace = (place) => {
-  const boundingBox = place.bounding_box.coordinates[0];
-  const southWest = new LatLng(boundingBox[1][1], boundingBox[1][0]);
-  const northEast = new LatLng(boundingBox[3][1], boundingBox[3][0]);
-  return new LatLngBounds(southWest, northEast);
-};
+// const getBoundsFromPlace = (place) => {
+//   const boundingBox = place.bounding_box.coordinates[0];
+//   const southWest = new LatLng(boundingBox[1][1], boundingBox[1][0]);
+//   const northEast = new LatLng(boundingBox[3][1], boundingBox[3][0]);
+//   return new LatLngBounds(southWest, northEast);
+// };
 
-const onPostClick = (post) => {
-  window.open(`https://twitter.com/user/status/${post.id.$numberLong}`);
-};
+// const onPostClick = (post) => {
+//   window.open(`https://twitter.com/user/status/${post.id.$numberLong}`);
+// };
 
 const RecenterAutomatically = ({ area }) => {
   const map = useMap();
@@ -76,11 +75,25 @@ const AreaMap = ({ areas, area, routing }) => {
     return points;
   }, [areas]);
 
-  let waypoints = [L.latLng(companyVertex.lati, companyVertex.longti)];
+  let waypoints = [
+    {
+      coordinate: L.latLng(companyVertex.lati, companyVertex.longti),
+      id: 1,
+      areaId: 1,
+    },
+  ];
 
   areas.forEach((area) => {
     area.MCPs.forEach(
-      (MCP) => (waypoints = [...waypoints, L.latLng(MCP.lati, MCP.longti)])
+      (MCP) =>
+        (waypoints = [
+          ...waypoints,
+          {
+            coordinate: L.latLng(MCP.lati, MCP.longti),
+            id: MCP.id,
+            areaId: MCP.areaId,
+          },
+        ])
     );
   });
 
@@ -99,6 +112,10 @@ const AreaMap = ({ areas, area, routing }) => {
         },
       })
     );
+  };
+
+  const handleUpdateMCPPos = (MCP) => {
+    dispatch(updateMCPPos(MCP));
   };
 
   useEffect(() => {
@@ -236,6 +253,8 @@ const AreaMap = ({ areas, area, routing }) => {
           ref={rMachine}
           waypoints={waypoints}
           vertexs={vertexs}
+          updateMCPPos={handleUpdateMCPPos}
+          routing={routing}
         />
       </MapContainer>
     </>
