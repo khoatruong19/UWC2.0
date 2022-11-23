@@ -1,3 +1,5 @@
 1. Change the icons for MCPs and Depot, etc.
 2. Focus onto the chosen area when clicked on the dropdown box.
 2.1. In task assignment panel, the map only focused on the designated area.
+2.2. In focus mode, the sidebar has fill problem.
+2.3. Need to add interactions with MCPs.
