@@ -1,4 +1,3 @@
-
 import { mainTextColor, mainGreen } from '../../utils/constants';
 import Form from 'react-bootstrap/Form';
 import { useState, useEffect } from 'react';
@@ -90,7 +89,7 @@ const Home = () => {
           }}
           onChange={(e) => {
             const pos = JSON.parse(e.target.value);
-            setArea([pos.lat, pos.lng]);
+            setArea([pos.lat - 0.006, pos.lng - 0.01]);
           }}
         >
           {areas &&
