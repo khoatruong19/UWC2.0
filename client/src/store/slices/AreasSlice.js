@@ -47,6 +47,25 @@ const AreasSlice = createSlice({
       saveAreas(state.areas);
     },
     updateMCP(state, action) {},
+    updateMCPPos(state, action) {
+      state.areas = state.areas.map((area) => {
+        if (area.id === action.payload.areaId)
+          return {
+            ...area,
+            MCPs: area.MCPs.map((MCP) => {
+              if (MCP.id === action.payload.id)
+                return {
+                  ...MCP,
+                  lati: action.payload.lati,
+                  longti: action.payload.longti,
+                };
+              return MCP;
+            }),
+          };
+        return area;
+      });
+      saveAreas(state.areas);
+    },
     deleteMCP(state, action) {},
     triggerAreaModal(state, action) {
       state.openAreaModal = action.payload;
@@ -66,6 +85,7 @@ export const {
   updateArea,
   triggerAreaModal,
   triggerMCPModal,
+  updateMCPPos,
 } = AreasSlice.actions;
 
 export default AreasSlice.reducer;

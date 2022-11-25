@@ -5,7 +5,6 @@ import 'lrm-graphhopper';
 import { useDispatch } from 'react-redux';
 import depot from '../../images/Depot.png';
 import mcp from '../../images/recycling-place.png';
-import { getRouteObj, updateMcp } from '../../services/mcps';
 import { checkIsOfficeAddress } from '../../utils/helper';
 
 const icon = L.icon({
@@ -35,11 +34,18 @@ const getMarkerOfficePopup = (params) => {
 const createRoutineMachineLayer = ({
   waypoints,
   addMCP,
+  updateMCPPos,
   vertexs,
   ...props
 }) => {
+  console.log({ waypoints });
+  const realWaypoints = waypoints.map((point) =>
+    L.latLng(point.coordinate.lat, point.coordinate.lng)
+  );
+  console.log({ realWaypoints });
+
   const instance = L.Routing.control({
-    waypoints,
+    waypoints: realWaypoints,
     router:
       props.routing &&
       L.Routing.graphHopper(process.env.REACT_APP_GRAPHHOPPER_API),
@@ -65,6 +71,7 @@ const createRoutineMachineLayer = ({
       },
     createMarker: (i, waypoint, n) => {
       var vextex = vertexs[i];
+      console.log({ waypoint });
       if (checkIsOfficeAddress(waypoint.latLng.lat, waypoint.latLng.lng)) {
         return L.marker(waypoint.latLng, {
           draggable: true,
@@ -82,7 +89,7 @@ const createRoutineMachineLayer = ({
             lati: e.target._latlng.lat,
             longti: e.target._latlng.lng,
           };
-          addMCP(latlng);
+          updateMCPPos({ ...waypoints[i], ...latlng });
         });
     },
     show: false,
