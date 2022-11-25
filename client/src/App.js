@@ -2,11 +2,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AuthLayout from './layouts/AuthLayout';
 import MainLayout from './layouts/MainLayout';
 import { routes } from './routes';
+import MCPInfoModal from './components/modals/MCPInfoModal/MCPInfoModal';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <MCPInfoModal />
+      {/* <BrowserRouter>
         <Routes>
           {routes.map((route, index) => {
             const Page = route.component;
@@ -24,7 +26,7 @@ function App() {
             );
           })}
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }
