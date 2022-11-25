@@ -7,8 +7,7 @@ import MCPInfoModal from './components/modals/MCPInfoModal/MCPInfoModal';
 function App() {
   return (
     <div className="App">
-      <MCPInfoModal />
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           {routes.map((route, index) => {
             const Page = route.component;
@@ -26,7 +25,7 @@ function App() {
             );
           })}
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </div>
   );
 }
