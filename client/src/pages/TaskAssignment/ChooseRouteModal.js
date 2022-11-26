@@ -1,20 +1,16 @@
 import React from 'react';
 import styles from "./Modal.module.css";
 import { RiCloseLine } from "react-icons/ri";
-
-import { mainTextColor, mainGreen } from '../../utils/constants';
 import Form from 'react-bootstrap/Form';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AreaMap from '../../components/AreaMap';
-import MCPModal from '../../components/modals/MCPModal';
 import { useSelector } from 'react-redux';
+//import MCPModal from '../../components/modals/MCPModal';
 
 const ChooseRouteModal = ({ setIsOpen }) => {
 
     const [area, setArea] = useState([10.66, 106.67]);
     const areas = useSelector((state) => state.areas.areas);
-
-    //console.log({ areas });
 
     return (
         <>
@@ -37,6 +33,7 @@ const ChooseRouteModal = ({ setIsOpen }) => {
                         <div className={styles.mapContainer}>
                             <AreaMap className={styles.mapSize} routing areas={areas} area={area} />
                         </div>
+                        <span></span>
                     </div>
                     <div className={styles.modalActions}>
                         <div className={styles.actionsContainer}>

@@ -149,7 +149,7 @@
     max-height: 250px;
     overflow: hidden;
     border: 3px solid darkcyan;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .mapSize {
@@ -160,7 +160,7 @@
 
 /* Dropbox */
 .dropbox {
-    max-width: 130px;
+    max-width: 800px;
     width: fit-content;
     overflow: hidden;
     margin-top: 0;
