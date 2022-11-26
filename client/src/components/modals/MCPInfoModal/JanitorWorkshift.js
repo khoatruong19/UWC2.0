@@ -13,4 +13,3 @@ export const JanitorWorkshift = [
         sunday: JanitorAssignment(JanitorList[6])
     }
 ]
-

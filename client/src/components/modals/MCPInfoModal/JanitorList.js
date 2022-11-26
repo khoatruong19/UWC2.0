@@ -18,4 +18,3 @@ export const JanitorList = [
         address: "China"
     }
 ]
-
