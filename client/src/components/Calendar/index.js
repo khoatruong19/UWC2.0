@@ -96,7 +96,7 @@ const Calendar = (props) => {
             </TableBody>
         </Table>
     </Box>
-  );
+  ); 
 };
 
 export default Calendar;

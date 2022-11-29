@@ -74,6 +74,6 @@ const EmployeeAssignment = (props) => {
             </Modal>
         </>
     )
-}
+} 
 
 export default EmployeeAssignment
