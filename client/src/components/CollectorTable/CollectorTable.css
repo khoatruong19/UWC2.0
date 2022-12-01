@@ -1,0 +1,83 @@
+.background {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  width: 50vw;
+}
+
+.closeButton {
+  display:flex;
+  justify-content: right;
+  background-color: white;
+  border: none;
+}
+.table {
+  background-color: #a8e890;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+.table-container {
+  height: 23em;
+}
+table thead {
+  flex: 0 0 auto;
+  width: calc(100% - 0.9em);
+}
+table tbody {
+  flex: 1 1 auto;
+  display: block;
+  overflow-y: scroll;
+  
+}
+
+table thead, table tbody tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.header {
+  font-weight: bold;
+  font-size: 35px;
+  color: #425f58;
+}
+
+.input {
+  background-color: #a8e890;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-image: url("../../../public/SearchOutline.svg");
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 20px 40px;
+  padding-left: 40x;
+  padding-right: 100px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.button {
+  background-color: #425f58;
+  color: #a8e890;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+.class1{
+  color: red;
+}
+th{
+  border:1px solid black;
+}
+td{
+  border:1px solid black;
+}
+tr:hover{
+  background-color:beige;
+  cursor:pointer;
+}
