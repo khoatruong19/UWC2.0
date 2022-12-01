@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import AreaMap from '../../components/AreaMap';
 import { useSelector } from 'react-redux';
+import { FormControlLabel } from '@mui/material';
 //import MCPModal from '../../components/modals/MCPModal';
 
 const ChooseRouteModal = ({ setIsOpen }) => {
@@ -24,16 +25,23 @@ const ChooseRouteModal = ({ setIsOpen }) => {
                         <RiCloseLine style={{ marginBottom: "-3px" }} />
                     </button>
                     <div className={styles.modalContent}>
-                        <Form.Select className={styles.dropbox}
-                            onChange={(e) => { const pos = JSON.parse(e.target.value); setArea([pos.lat, pos.lng]); }}>
-                            {areas && areas.map((item, i) => {
-                                return (<option key={i} value={JSON.stringify(item.bounds[0][0])}> {item.name} </option>);
-                            })}
-                        </Form.Select>
+                        <div className={styles.boxWrapper}>
+                            <Form.Select className={styles.dropBox}
+                                onChange={(e) => { const pos = JSON.parse(e.target.value); setArea([pos.lat, pos.lng]); }}>
+                                {areas && areas.map((item, i) => {
+                                    return (<option key={i} value={JSON.stringify(item.bounds[0][0])}> {item.name} </option>);
+                                })}
+                            </Form.Select>
+                        </div>
                         <div className={styles.mapContainer}>
                             <AreaMap className={styles.mapSize} routing areas={areas} area={area} />
                         </div>
-                        <span></span>
+                        <div className={styles.boxWrapper}>
+                            <Form.Group controlId='formInlineName'>
+                                <FormControlLabel>Schema Name</FormControlLabel>
+                                <Form.Control type='text' placeholder='Example: OpRoute' />
+                            </Form.Group>
+                        </div>
                     </div>
                     <div className={styles.modalActions}>
                         <div className={styles.actionsContainer}>
