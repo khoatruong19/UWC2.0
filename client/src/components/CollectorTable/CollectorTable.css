@@ -2,16 +2,43 @@
   padding: 10px;
   margin: 10px;
   text-align: center;
-  background-color: black;
+  background-color: white;
   border-radius: 5px;
-  width: 40vw;
+  width: 50vw;
 }
 
 .closeButton {
-  display: flex;
+  display:flex;
   justify-content: right;
+  background-color: white;
+  border: none;
+}
+.table {
+  background-color: #a8e890;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+.table-container {
+  height: 23em;
+}
+table thead {
+  flex: 0 0 auto;
+  width: calc(100% - 0.9em);
+}
+table tbody {
+  flex: 1 1 auto;
+  display: block;
+  overflow-y: scroll;
+  
 }
 
+table thead, table tbody tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
 
 .header {
   font-weight: bold;
@@ -34,17 +61,6 @@
   border-radius: 5px;
 }
 
-.table {
-  background-color: #a8e890;
-  border-radius: 5px;
-}
-
-th,td,tr {
-  text-align: center;
-  border: black solid 5px;
-}
-
-
 .button {
   background-color: #425f58;
   color: #a8e890;
@@ -52,36 +68,16 @@ th,td,tr {
   width: 100%;
   border-radius: 5px;
 }
-
-/* .btn {
-  position: fixed;
-  right: 800px;
-  top: 7px;
-} */
-
-
-
-/* #table-wrapper {
-  position:relative;
+.class1{
+  color: red;
 }
-#table-scroll {
-  height:150px;
-  overflow:auto;  
-  margin-top:20px;
+th{
+  border:1px solid black;
 }
-#table-wrapper table {
-  width:100%;
-
+td{
+  border:1px solid black;
 }
-#table-wrapper table * {
-  background:yellow;
-  color:black;
+tr:hover{
+  background-color:beige;
+  cursor:pointer;
 }
-#table-wrapper table thead th .text {
-  position:absolute;   
-  top:-20px;
-  z-index:2;
-  height:20px;
-  width:35%;
-  border:1px solid red;
-} */

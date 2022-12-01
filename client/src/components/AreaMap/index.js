@@ -127,10 +127,10 @@ const AreaMap = ({ areas, area, routing }) => {
   return (
     <>
       <MapContainer
-        center={[15, 107]}
+        center={area}
         zoom={10}
         style={{
-          height: '550px',
+          height: '450px',
           marginBottom: '90px',
         }}
       >

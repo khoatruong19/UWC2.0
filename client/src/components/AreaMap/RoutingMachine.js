@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import depot from '../../images/Depot.png';
 import mcp from '../../images/recycling-place.png';
 import { checkIsOfficeAddress } from '../../utils/helper';
+import MCPInfoModal from '../modals/MCPInfoModal';
 
 const icon = L.icon({
   iconUrl: depot,
