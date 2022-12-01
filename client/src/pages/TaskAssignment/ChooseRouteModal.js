@@ -2,10 +2,14 @@ import React from 'react';
 import styles from "./Modal.module.css";
 import { RiCloseLine } from "react-icons/ri";
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
 import AreaMap from '../../components/AreaMap';
 import { useSelector } from 'react-redux';
 import { FormControlLabel } from '@mui/material';
+import Col from 'react-bootstrap/esm/Col';
+import { Control } from 'leaflet';
+import Select, { components, DropdownIndicatorProps } from 'react-select';
 //import MCPModal from '../../components/modals/MCPModal';
 
 const ChooseRouteModal = ({ setIsOpen }) => {
@@ -25,28 +29,37 @@ const ChooseRouteModal = ({ setIsOpen }) => {
                         <RiCloseLine style={{ marginBottom: "-3px" }} />
                     </button>
                     <div className={styles.modalContent}>
-                        <div className={styles.boxWrapper}>
-                            <Form.Select className={styles.dropBox}
-                                onChange={(e) => { const pos = JSON.parse(e.target.value); setArea([pos.lat, pos.lng]); }}>
-                                {areas && areas.map((item, i) => {
-                                    return (<option key={i} value={JSON.stringify(item.bounds[0][0])}> {item.name} </option>);
-                                })}
-                            </Form.Select>
-                        </div>
                         <div className={styles.mapContainer}>
                             <AreaMap className={styles.mapSize} routing areas={areas} area={area} />
                         </div>
-                        <div className={styles.boxWrapper}>
-                            <Form.Group controlId='formInlineName'>
-                                <FormControlLabel>Schema Name</FormControlLabel>
-                                <Form.Control type='text' placeholder='Example: OpRoute' />
-                            </Form.Group>
+                        <div className={styles.formText}>
+                            <Form>
+                                <Form.Group as={Row} className='mb-3' controlId='formHorizontalRoute'>
+                                    <Col componentClass={Control.Label} className={styles.b4Form} sm={1}>
+                                        Message
+                                    </Col>
+                                    <Col sm={6}>
+                                        <Form.Control type="text" placeholder='Ex: Road often jammed at 8 p.m.' />
+                                    </Col>
+                                    <Col sm={5}>
+                                        <Form.Select className={styles.dropBoxLarge}
+                                            onChange={(e) => { const pos = JSON.parse(e.target.value); setArea([pos.lat, pos.lng]); }}>
+                                            {areas && areas.map((item, i) => {
+                                                return (<option key={i} value={JSON.stringify(item.bounds[0][0])}> {item.name} </option>);
+                                            })}
+                                        </Form.Select>
+                                    </Col>
+                                </Form.Group>
+                            </Form>
+                        </div>
+                        <div>
+                            <button className={styles.checkBtn} onClick={() => setIsOpen(false)}> Assign </button>
                         </div>
                     </div>
                     <div className={styles.modalActions}>
                         <div className={styles.actionsContainer}>
-                            <button className={styles.deleteBtn} onClick={() => setIsOpen(false)}> Save </button>
-                            <button className={styles.cancelBtn} onClick={() => setIsOpen(false)}> Assign </button>
+                            <button className={styles.cancelBtn} onClick={() => setIsOpen(false)}> Back </button>
+                            <button className={styles.cancelBtn} onClick={() => setIsOpen(false)}> Clear </button>
                         </div>
                     </div>
                 </div>
