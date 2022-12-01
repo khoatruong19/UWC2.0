@@ -159,6 +159,7 @@
 }
 
 /* Dropbox */
+<<<<<<< HEAD
 .dropbox {
     max-width: 800px;
     width: fit-content;
@@ -166,6 +167,25 @@
     margin-top: 0;
     border: 2px solid lightgreen;
     color: green;
+=======
+.boxWrapper {
+    max-width: 800px;
+    width: max-content;
+    overflow: hidden;
+    margin-top: 0;
+    border: 2px solid green;
+    border-radius: 12px;
+}
+
+.dropBox {
+    max-width: 200px;
+    width: fit-content;
+    overflow: hidden;
+    margin-top: 0;
+    border: green;
+    border-radius: 12px;
+    color: blueviolet;
+>>>>>>> 546e87314bb40dd4756b80e8f1842af29a3c5246
     font-weight: 500;
     font-size: 0.8rem;
 }
