@@ -50,7 +50,7 @@ const EmployeeAssignment = (props) => {
                         // flexGrow: "1",
                         // display: "flex"
                     }}>
-                        <CollectorTable></CollectorTable>
+                        {open && < CollectorTable setOpened={setOpen} />}
                     </Box>
                     {/* <Button 
                         style = {{
