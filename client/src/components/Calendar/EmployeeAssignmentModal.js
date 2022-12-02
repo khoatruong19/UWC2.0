@@ -1,6 +1,7 @@
 import React from 'react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { Box, Modal, Button } from '@mui/material';
+import CollectorTable from '../CollectorTable/CollectorTable';
 import "./hover.css"
 
 const style = {
@@ -44,14 +45,14 @@ const EmployeeAssignment = (props) => {
                 <Box sx = {{...style, width: 400, display: "flex", flexDirection: "column"}}>
                     <h2 style = {{textAlign: "center"}}>Assign employee</h2>
                     <Box style = {{
-                        backgroundColor: "#A8E890", 
-                        borderRadius: "6px",
-                        flexGrow: "1",
-                        display: "flex"
+                        // backgroundColor: "#A8E890", 
+                        // borderRadius: "6px",
+                        // flexGrow: "1",
+                        // display: "flex"
                     }}>
-                        I love you 
+                        <CollectorTable></CollectorTable>
                     </Box>
-                    <Button 
+                    {/* <Button 
                         style = {{
                             backgroundColor: '#425F57',
                             marginTop: '5px',
@@ -62,14 +63,14 @@ const EmployeeAssignment = (props) => {
                         onClick = {handleClose}
                     >
                         Finish
-                    </Button>
-                    <div
+                    </Button> */}
+                    {/* <div
                         style={{ position: 'absolute', right: '-0', top: '-0' }}
                         className="hover"
                         onClick={handleClose}
                     >
                         <XMarkIcon style={{ width: '2rem', height: '2rem' }} />
-                    </div>
+                    </div> */}
                 </Box>
             </Modal>
         </>
