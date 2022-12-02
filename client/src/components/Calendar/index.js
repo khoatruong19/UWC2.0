@@ -17,6 +17,11 @@ const Calendar = (props) => {
 //       createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
 //       createData('Eclair', 262, 16.0, 24, 6.0),
 //   ];
+  const validateSubmit = (event) => {
+    event.preventDefault();
+    if (!event.target.newShift.value) return alert("Please enter workshift.");
+    handleSubmit(event);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -76,7 +81,7 @@ const Calendar = (props) => {
             ))}
             <TableRow>
                 <TableCell style = {{width: "inherit"}}>
-                    <form style = {{display: "flex"}} onSubmit={handleSubmit}>
+                    <form style = {{display: "flex"}} onSubmit={validateSubmit}>
                         <TextField type="text" placeholder="Enter new shift" name="newShift"></TextField>
                         {document.onkeydown = event => {
                             if (event.keyCode === 13) {
