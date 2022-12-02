@@ -41,10 +41,6 @@ const MCPInfoModal = () => {
         {
             className: "MCP-percentage",
             text: "MCP full percentage: 60%"
-        },
-        {
-            className: "MCP-workers",
-            text: "Workers: Janitor1"
         }
     ]
   
@@ -86,7 +82,7 @@ const MCPInfoModal = () => {
                         flexDirection: "column",
                     }} className="MCP-information">
                         {MCPInformation.map((info) => (
-                            <Box sx ={{height: "2.5rem", color: "#E6E5A3", backgroundColor: "#7D8F69", paddingLeft: "0.5rem", borderRadius: "6px", marginBottom: "0.5rem", display: "flex", wordWrap: "break-word"}}>
+                            <Box sx ={{height: "2.5rem", color: "#E6E5A3", backgroundColor: "#7D8F69", paddingLeft: "0.5rem", borderRadius: "6px", marginBottom: "1.68rem", display: "flex", wordWrap: "break-word"}}>
                                 <div style = {{margin: "auto 0"}} className = {`${info.className}`} >{info.text}</div>  
                             </Box>
                         ))}
