@@ -7,17 +7,6 @@ import { janitorSchedule } from './EmployeeList';
 const Calendar = (props) => {
   const [rows, setRows] = React.useState(props.data); 
 
-
-//   function createData(workshift, monday, tuesday, wednesday, thursday, friday, saturday, sunday) {
-//     return { workshift, monday, tuesday, wednesday, thursday, friday, saturday, sunday };
-//   }
-  
-//   const rows = [
-//       createData('Frozen yoghurt', EmployeeAssignment({name: "John"}), 6.0, 24, 4.0, 1, 1, 1),
-//       createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-//       createData('Eclair', 262, 16.0, 24, 6.0),
-//   ];
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const newRow = {

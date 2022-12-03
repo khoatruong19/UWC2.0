@@ -15,7 +15,6 @@ import { ArrowUturnLeftIcon } from '@heroicons/react/24/solid';
 //import MCPModal from '../../components/modals/MCPModal';
 
 const ChooseRouteModal = ({ setIsOpen }) => {
-
     const [area, setArea] = useState([10.66, 106.67]);
     const areas = useSelector((state) => state.areas.areas);
     const [selectedArea, setSelectedArea] = useState(areas[0])
