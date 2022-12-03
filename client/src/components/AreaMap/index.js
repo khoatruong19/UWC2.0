@@ -17,26 +17,14 @@ import RoutineMachine from './RoutingMachine';
 import { nanoid } from 'nanoid';
 import {
   deleteArea,
+  deleteMCP,
   triggerAreaModal,
   triggerMCPModal,
   updateMCPPos,
 } from '../../store/slices/AreasSlice';
 import { useDispatch, useSelector } from 'react-redux';
-
-// const moveEndHandler = (event) => {
-//   console.log(event);
-// };
-
-// const getBoundsFromPlace = (place) => {
-//   const boundingBox = place.bounding_box.coordinates[0];
-//   const southWest = new LatLng(boundingBox[1][1], boundingBox[1][0]);
-//   const northEast = new LatLng(boundingBox[3][1], boundingBox[3][0]);
-//   return new LatLngBounds(southWest, northEast);
-// };
-
-// const onPostClick = (post) => {
-//   window.open(`https://twitter.com/user/status/${post.id.$numberLong}`);
-// };
+import MCPInfoModal from '../modals/MCPInfoModal';
+import { Button } from '@mui/material';
 
 const RecenterAutomatically = ({ area }) => {
   const map = useMap();
@@ -46,18 +34,22 @@ const RecenterAutomatically = ({ area }) => {
   return null;
 };
 
+
 const maps = {
   base: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 };
 
-const AreaMap = ({ areas, area, routing }) => {
-  const [openContext, setOpenContext] = useState(false);
+const AreaMap = ({ areas, area, routing, width, height , handleOutMCP, handleGetRoute}) => {
+  const [openAreaContext, setOpenAreaContext] = useState(false);
+  const [openMCPContext, setOpenMCPContext] = useState(false);
+  const [openMCPModal, setOpenMCPModal] = useState(false)
   const [points, setPoints] = useState({
     x: 0,
     y: 0,
     latlng: { lat: 0, lng: 0 },
   });
   const [selectedArea, setSelectedArea] = useState(0);
+  const [selectedMCP, setSelectedMCP] = useState(0);
 
   const rMachine = useRef();
 
@@ -75,32 +67,30 @@ const AreaMap = ({ areas, area, routing }) => {
     return points;
   }, [areas]);
 
-  let waypoints = [
-    {
-      coordinate: L.latLng(companyVertex.lati, companyVertex.longti),
-      id: 1,
-      areaId: 1,
-    },
-  ];
+  const waypoints =  useMemo(() => {
+    let points = [
+      {
+        coordinate: L.latLng(companyVertex.lati, companyVertex.longti),
+        id: "1",
+        areaId: "1",
+      },
+    ];
+    areas.forEach((area) => {
+      area.MCPs.forEach(
+        (MCP) =>
+          (points = [
+            ...points,
+            {
+              coordinate: L.latLng(MCP.lati, MCP.longti),
+              id: MCP.id,
+              areaId: MCP.areaId,
+            },
+          ])
+      );
+    });
+    return points;
+  }, [areas]);
 
-  areas.forEach((area) => {
-    area.MCPs.forEach(
-      (MCP) =>
-        (waypoints = [
-          ...waypoints,
-          {
-            coordinate: L.latLng(MCP.lati, MCP.longti),
-            id: MCP.id,
-            areaId: MCP.areaId,
-          },
-        ])
-    );
-  });
-
-  const handleDeleteArea = () => {
-    // const tempAreas = areas.filter((item, i) => i !== selectedArea);
-    // setAreas(tempAreas);
-  };
 
   const handleAddMCP = (latlng) => {
     dispatch(
@@ -111,27 +101,57 @@ const AreaMap = ({ areas, area, routing }) => {
           latlng,
         },
       })
-    );
+    )
   };
 
   const handleUpdateMCPPos = (MCP) => {
     dispatch(updateMCPPos(MCP));
   };
 
+  const refreshWaypoints = () => {
+    if (rMachine.current && waypoints) {
+      const realWaypoints = waypoints.map((point) =>
+        ({
+          latLng:L.latLng(point.coordinate.lat, point.coordinate.lng),
+          name: point.areaId + "-" + point.id
+        })
+      );
+      rMachine.current.setWaypoints(realWaypoints)
+    }
+  }
+
+  const handleOpenMCPContext = ({points, MCP}) => {
+    setOpenMCPContext(true)
+    setPoints(points)
+    setSelectedMCP(MCP)
+  }
+
   useEffect(() => {
-    const handleCloseContextMenu = () => setOpenContext(false);
+    const handleCloseContextMenu = () => {
+      setOpenAreaContext(false)
+      setOpenMCPContext(false)
+    }
     window.addEventListener('click', handleCloseContextMenu);
     return () => window.removeEventListener('click', handleCloseContextMenu);
   }, []);
 
+  useEffect(() => {
+    refreshWaypoints()
+  }, [waypoints, rMachine]);
+
+
+
   return (
     <>
+      {handleGetRoute && (
+        <Button onClick={() => handleGetRoute(rMachine.current._selectedRoute.instructions)}>Get Route Instructions</Button>
+      )}
       <MapContainer
         center={area}
         zoom={10}
         style={{
-          height: '450px',
-          marginBottom: '90px',
+          height: height || '100%',
+          width: width || '100%',
         }}
       >
         <TileLayer
@@ -164,6 +184,7 @@ const AreaMap = ({ areas, area, routing }) => {
             }}
           />
         </FeatureGroup>
+            <Pane>
 
         {areas &&
           areas.length > 0 &&
@@ -193,7 +214,7 @@ const AreaMap = ({ areas, area, routing }) => {
                         y: e.layerPoint.y,
                         latlng: e.latlng,
                       });
-                      setOpenContext(true);
+                      setOpenAreaContext(true);
                     },
                     // click: () => {
                     //   let newAreas = areas.filter((item, index) => i !== index);
@@ -204,8 +225,9 @@ const AreaMap = ({ areas, area, routing }) => {
               </LayerGroup>
             );
           })}
+            </Pane>
         <RecenterAutomatically area={area} />
-        {openContext && (
+        {openAreaContext && (
           <Pane style={{}}>
             <div
               style={{
@@ -230,7 +252,10 @@ const AreaMap = ({ areas, area, routing }) => {
               <div
                 className="bg-success p-2 cursor-pointer op9 "
                 style={{ fontWeight: 600 }}
-                onClick={() => dispatch(deleteArea({ id: selectedArea.id }))}
+                onClick={() => {
+                  dispatch(deleteArea({ id: selectedArea.id }))
+
+                }}
               >
                 Delete
               </div>
@@ -249,13 +274,51 @@ const AreaMap = ({ areas, area, routing }) => {
             </div>
           </Pane>
         )}
+        {openMCPContext && (
+          <Pane style={{}}>
+            <div
+              style={{
+                position: 'absolute',
+                top: `${points.y}px`,
+                left: `${points.x}px`,
+                width: '90px',
+                zIndex: 9999,
+              }}
+            >
+              {handleOutMCP && (
+
+              <div
+                className="bg-success p-2 cursor-pointer op9 "
+                style={{ fontWeight: 600 }}
+                onClick={() =>
+                  handleOutMCP(selectedMCP)
+                }
+              >
+                Out
+              </div>
+              )}
+              <div
+                className="bg-success p-2 cursor-pointer op9 "
+                style={{ fontWeight: 600 }}
+                onClick={() => {
+                  dispatch(deleteMCP(selectedMCP))
+                }}
+              >
+                Delete
+              </div>
+            </div>
+          </Pane>
+        )}
         <RoutineMachine
           ref={rMachine}
           waypoints={waypoints}
           vertexs={vertexs}
           updateMCPPos={handleUpdateMCPPos}
           routing={routing}
+          setOpen={setOpenMCPModal}
+          setOpenContext={handleOpenMCPContext}
         />
+        <MCPInfoModal open={openMCPModal} setOpen={setOpenMCPModal}/>
       </MapContainer>
     </>
   );

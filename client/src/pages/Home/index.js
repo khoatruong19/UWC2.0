@@ -9,8 +9,6 @@ const Home = () => {
   const [area, setArea] = useState([10.66, 106.67]);
   const areas = useSelector((state) => state.areas.areas);
 
-  console.log({ areas });
-
   return (
     <div className="w-75 mx-auto" style={{ position: 'relative' }}>
       <div className="p-5">
@@ -108,7 +106,7 @@ const Home = () => {
             position: 'relative',
           }}
         >
-          <AreaMap routing areas={areas} area={area} />
+          <AreaMap height={'450px'} areas={areas} area={area} />
         </div>
       </div>
     </div>
