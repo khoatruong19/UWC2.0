@@ -29,7 +29,26 @@ const janitors = [
 ]
 
 const collectors = [
-
+    {
+        id: 1,
+        name: "John Elkann",
+        status: "assigned"
+    },
+    {
+        id: 2,
+        name: "John Elkann",
+        status: "assigned"
+    },
+    {
+        id: 3,
+        name: "John Elkann",
+        status: "assigned"
+    },
+    {
+        id: 41,
+        name: "John Elkann",
+        status: "assigned"
+    },
 ]
 
 export const janitorSchedule = [

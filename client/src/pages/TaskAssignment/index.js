@@ -9,25 +9,36 @@ import { useSelector } from 'react-redux';
 import styles from "./Modal.module.css";
 import ChooseRouteModal from './ChooseRouteModal';
 import CollectorTable from '../../components/CollectorTable/CollectorTable'
+import { janitorSchedule } from '../../components/Calendar/EmployeeList';
 
 const TaskAssignment = () => {
-
-    const [isOpen, setIsOpen] = useState(false);
-    const [opened, setOpened] = useState(false);
+    const [area, setArea] = useState([10.66, 106.67]);
+    const areas = useSelector((state) => state.areas.areas);
 
     return (
-        <>
-            <div>
-                <p>
-                    <button className={styles.primaryBtn} onClick={() => setIsOpen(true)}> Open Modal </button>
-                    {isOpen && <ChooseRouteModal setIsOpen={setIsOpen} />}
-                </p>
-                <p>
-                    <button className={styles.primaryBtn} onClick={() => setOpened(true)}> Open Modal 2 </button>
-                    {opened && < CollectorTable setOpened={setOpened} />}
-                </p>
-            </div>
-        </>
+        <div 
+            className="conntainer p-5"
+            style={{
+                marginRight: '100px',
+                width: '100%'
+            }}
+        >  
+                <h2 className='mb-4'>Task assignment</h2>
+                <div>
+                    <div 
+                        className={styles.mapContainer}
+                        style={{
+                            maxWidth: '100%',
+                            maxHeight: '350px',
+                        }}
+                    >   
+                        <AreaMap className={styles.mapSize_choose} routing areas={areas} area={area} />
+                    </div>
+                    <div className="mt-5">
+                        <Calendar data = {janitorSchedule} />
+                    </div>
+                </div>
+        </div>
     )
 };
 
