@@ -1,6 +1,6 @@
 import React from 'react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import { Box, Modal, Button } from '@mui/material';
+import { Box, Modal, Button, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
 import CollectorTable from '../CollectorTable/CollectorTable';
 import "./hover.css"
 import { Collectors } from './Collectors';

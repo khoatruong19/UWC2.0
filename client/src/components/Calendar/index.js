@@ -25,6 +25,13 @@ const Calendar = (props) => {
     event.target.newShift.value = "";
   }
 
+  const validateSubmit = (event) => {
+    if (!event.target.newShift.value){
+      return alert("Please enter workshift");
+    }
+    handleSubmit(event);
+  }
+
   return (
     <Box style = {{...props.style} || {
       width: "1000px",
