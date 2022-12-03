@@ -16,6 +16,17 @@ const initialState = {
   },
 };
 
+const initialMCPWorkshifts = [
+  {
+    workshift: '7h30 - 8:30',
+    days: [[], [], [], [], [], [], []]
+  },
+  {
+    workshift: '9h - 10:30',
+    days: [[], [], [], [], [], [], []]
+  },
+]
+
 const AreasSlice = createSlice({
   name: 'areas',
   initialState,
@@ -41,13 +52,14 @@ const AreasSlice = createSlice({
     addMCP(state, action) {
       state.areas = state.areas.map((area) => {
         if (area.id === action.payload.areaId)
-          return { ...area, MCPs: [...area.MCPs, action.payload.MCP] };
+          return { ...area, MCPs: [...area.MCPs, {...action.payload.MCP, schedule: initialMCPWorkshifts}]};
         return area;
       });
+      state.openMCPModal = null
       saveAreas(state.areas);
     },
-    updateMCP(state, action) {},
     updateMCPPos(state, action) {
+      console.log("MCP, ", action.payload)
       state.areas = state.areas.map((area) => {
         if (area.id === action.payload.areaId)
           return {
@@ -66,7 +78,18 @@ const AreasSlice = createSlice({
       });
       saveAreas(state.areas);
     },
-    deleteMCP(state, action) {},
+    deleteMCP(state, action) {
+      let area = state.areas.find(item => item.id === action.payload.areaId)
+      if(area){
+        const restMCPs = area.MCPs.filter(MCP => MCP.id !== action.payload.id)
+        area ={...area, MCPs: restMCPs}
+      }
+      state.areas = state.areas.map((item) => {
+        if(item.id === area.id) return area
+        return item
+      });
+      saveAreas(state.areas);
+    },
     triggerAreaModal(state, action) {
       state.openAreaModal = action.payload;
     },
@@ -78,7 +101,6 @@ const AreasSlice = createSlice({
 
 export const {
   addMCP,
-  updateMCP,
   deleteMCP,
   createArea,
   deleteArea,
