@@ -6,14 +6,11 @@ import {
 import AreasReducer from './slices/AreasSlice';
 import { Iterable } from 'immutable';
 
-const isSerializable = (value) => Iterable.isIterable(value) || isPlain(value);
-
-const getEntries = (value) =>
-  Iterable.isIterable(value) ? value.entries() : Object.entries(value);
+const isNotSerializable = (value) => !Iterable.isIterable(value) || !isPlain(value);
 
 const serializableMiddleware = createSerializableStateInvariantMiddleware({
-  isSerializable,
-  getEntries,
+  isNotSerializable,
+
 });
 
 const store = configureStore({

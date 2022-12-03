@@ -2,11 +2,10 @@ import { createControlComponent } from '@react-leaflet/core';
 import L from 'leaflet';
 import 'leaflet-routing-machine';
 import 'lrm-graphhopper';
-import { useDispatch } from 'react-redux';
 import depot from '../../images/Depot.png';
 import mcp from '../../images/recycling-place.png';
 import { checkIsOfficeAddress } from '../../utils/helper';
-import MCPInfoModal from '../modals/MCPInfoModal';
+
 
 const icon = L.icon({
   iconUrl: depot,
@@ -18,13 +17,6 @@ const iconMCP = L.icon({
   iconSize: [40, 40],
 });
 
-const getMarkerMCPPopup = (params) => {
-  return `
-    <div><strong>Location:</strong> ${params.address}</div>
-    <div><strong>Max Capacity:</strong> ${params.maxCapacity}</div>
-    <div><strong>Last time:</strong> ${params.capacity}</div>
-  `;
-};
 
 const getMarkerOfficePopup = (params) => {
   return `
@@ -37,19 +29,20 @@ const createRoutineMachineLayer = ({
   addMCP,
   updateMCPPos,
   vertexs,
+  setOpen,
+  setOpenContext,
   ...props
 }) => {
-  console.log({ waypoints });
-  const realWaypoints = waypoints.map((point) =>
-    L.latLng(point.coordinate.lat, point.coordinate.lng)
+
+  const realWaypoints = waypoints.map((point) => ({
+    latLng: L.latLng(point.coordinate.lat, point.coordinate.lng),
+    name: point.areaId + "-" + point.id
+  })
   );
-  console.log({ realWaypoints });
 
   const instance = L.Routing.control({
     waypoints: realWaypoints,
-    router:
-      props.routing &&
-      L.Routing.graphHopper(process.env.REACT_APP_GRAPHHOPPER_API),
+   
     routeLine:
       props.routing &&
       function (route) {
@@ -60,6 +53,7 @@ const createRoutineMachineLayer = ({
           autoRoute: true,
           useZoomParameter: false,
           draggableWaypoints: false,
+
           styles: [{ color: 'green', weight: 4 }],
         });
         line.eachLayer(function (l) {
@@ -72,7 +66,6 @@ const createRoutineMachineLayer = ({
       },
     createMarker: (i, waypoint, n) => {
       var vextex = vertexs[i];
-      console.log({ waypoint });
       if (checkIsOfficeAddress(waypoint.latLng.lat, waypoint.latLng.lng)) {
         return L.marker(waypoint.latLng, {
           draggable: true,
@@ -84,14 +77,32 @@ const createRoutineMachineLayer = ({
 
         icon: iconMCP,
       })
-        .bindPopup(getMarkerMCPPopup(vextex))
         .addEventListener('dragend', (e) => {
           const latlng = {
             lati: e.target._latlng.lat,
             longti: e.target._latlng.lng,
           };
-          updateMCPPos({ ...waypoints[i], ...latlng });
-        });
+
+          const splitIds = waypoint.name.split("-")
+
+          updateMCPPos({ areaId: splitIds[0],id:splitIds[1] ,...latlng });
+        })
+        .addEventListener('click', () => setOpen(true))
+        .addEventListener('contextmenu', (e) => {
+          const latlng = {
+            lati: e.target._latlng.lat,
+            longti: e.target._latlng.lng,
+          };
+          const splitIds = waypoint.name.split("-")
+          setOpenContext(
+          { points: {
+            x: e.layerPoint.x,
+            y: e.layerPoint.y,
+            latlng: e.latlng,
+          },
+          MCP: {areaId: splitIds[0],id:splitIds[1],...latlng}
+        })
+      })
     },
     show: false,
     addWaypoints: false,
@@ -102,6 +113,7 @@ const createRoutineMachineLayer = ({
 
   return instance;
 };
+
 
 const RoutingMachine = createControlComponent(createRoutineMachineLayer);
 

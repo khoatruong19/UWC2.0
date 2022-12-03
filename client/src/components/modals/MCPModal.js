@@ -28,6 +28,7 @@ const MCPModal = () => {
     );
   };
   const handleSubmit = (e) => {
+    e.preventDefault()
     if (address.length === 0) return alert('Address cant be empty!');
     if (maxCapacity === 0) return alert('Max capacity must be larger than 0!');
     if (openMCPModal.type === 'ADD') {

@@ -20,8 +20,7 @@ const style = {
     pb: 3,
   };
 
-const MCPInfoModal = () => {
-    const [open, setOpen] = React.useState(false);
+const MCPInfoModal = ({open, setOpen}) => {
     const handleOpen = () => {
       setOpen(true);
     };
@@ -50,9 +49,9 @@ const MCPInfoModal = () => {
   
     return (
       <div>
-        <Button onClick={handleOpen}>
+        {/* <Button onClick={handleOpen}>
             <img style = {{width: 40, height: 40}} src={MCPicon}/>
-        </Button>
+        </Button> */}
         <Modal
           open={open}
           onClose={handleClose}
