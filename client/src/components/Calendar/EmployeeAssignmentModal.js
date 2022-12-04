@@ -90,7 +90,8 @@ const EmployeeAssignment = (props) => {
                         // flexGrow: "1",
                         // display: "flex"
                     }}>
-                        {open && < CollectorTable setOpened={setOpen} />}
+                        {/* {open && < CollectorTable setOpened={setOpen} />} */}
+                        {renderTable()}
                     </Box>
                     {/* <Button 
                         style = {{
@@ -104,13 +105,13 @@ const EmployeeAssignment = (props) => {
                     >
                         Finish
                     </Button> */}
-                    {/* <div
+                    <div
                         style={{ position: 'absolute', right: '-0', top: '-0' }}
                         className="hover"
                         onClick={handleClose}
                     >
                         <XMarkIcon style={{ width: '2rem', height: '2rem' }} />
-                    </div> */}
+                    </div>
                 </Box>
             </Modal>
             {openChooseRoute && <ChooseRouteModal setIsOpen={setOpenChooseRoute} />}
