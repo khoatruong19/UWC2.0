@@ -72,7 +72,7 @@ const ChooseRouteModal = ({ setIsOpen }) => {
                     <div className={styles.modalContent}>
                     {outMCPs.length > 0 && <button onClick={handlelUnOutMCP}><ArrowUturnLeftIcon style={{width: '1.5rem', height: '1.5rem'}} /></button>}
                             <div className={styles.mapContainer}>
-                                <AreaMap handleGetRoute={handleGetRoute} handleOutMCP = {handleOutMCP} height={'300px'} routing areas={[selectedArea]} area={area} />
+                                <AreaMap zIndex={10} handleGetRoute={handleGetRoute} handleOutMCP = {handleOutMCP} height={'300px'} routing areas={[selectedArea]} area={area} />
                             </div>
                         <div className={styles.formText}>
                             <Form>
