@@ -70,10 +70,6 @@ const ChooseRouteModal = ({ setIsOpen }) => {
                         <RiCloseLine style={{ marginBottom: "-3px" }} />
                     </button>
                     <div className={styles.modalContent}>
-                        {outMCPs.length > 0 && <button onClick={handlelUnOutMCP}><ArrowUturnLeftIcon style={{ width: '1.5rem', height: '1.5rem' }} /></button>}
-                        <div className={styles.mapContainer}>
-                            <AreaMap handleGetRoute={handleGetRoute} handleOutMCP={handleOutMCP} height={'300px'} routing areas={[selectedArea]} area={area} />
-                        </div>
                     {outMCPs.length > 0 && <button onClick={handlelUnOutMCP}><ArrowUturnLeftIcon style={{width: '1.5rem', height: '1.5rem'}} /></button>}
                             <div className={styles.mapContainer}>
                                 <AreaMap zIndex={10} handleGetRoute={handleGetRoute} handleOutMCP = {handleOutMCP} height={'300px'} routing areas={[selectedArea]} area={area} />
