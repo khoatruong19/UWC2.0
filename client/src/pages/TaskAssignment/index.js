@@ -26,17 +26,18 @@ const TaskAssignment = () => {
         >  
                 <h2 className='mb-4'>Task assignment</h2>
                 <div>
-                    <div
-                    style={{
-                        width: '100%',
-                        marginTop: '1rem',
-                        position: 'relative',
-                        zIndex: '9999'
-                    }}
-                    >
-                        <AreaMap height={'450px'} areas={areas} area={area} />
+                    <div 
+                        className={styles.mapContainer}
+                        style={{
+                            width: '100%',
+                            marginTop: '1rem',
+                            position: 'relative',
+                            zIndex: 1
+                        }}
+                    >   
+                        <AreaMap height={'350px'} routing areas={areas} area={area} />
                     </div>
-                    <div className="mt-5">
+                    <div className="mt-5" >
                         <Calendar data = {janitorSchedule} />
                     </div>
                 </div>

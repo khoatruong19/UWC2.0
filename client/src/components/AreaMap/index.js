@@ -39,7 +39,7 @@ const maps = {
   base: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 };
 
-const AreaMap = ({ areas, area, routing, width, height , handleOutMCP, handleGetRoute}) => {
+const AreaMap = ({ areas, area, routing, width, height , handleOutMCP, handleGetRoute, zIndex}) => {
   const [openAreaContext, setOpenAreaContext] = useState(false);
   const [openMCPContext, setOpenMCPContext] = useState(false);
   const [openMCPModal, setOpenMCPModal] = useState(false)
@@ -152,6 +152,7 @@ const AreaMap = ({ areas, area, routing, width, height , handleOutMCP, handleGet
         style={{
           height: height || '100%',
           width: width || '100%',
+          zIndex: zIndex || 1
         }}
       >
         <TileLayer
