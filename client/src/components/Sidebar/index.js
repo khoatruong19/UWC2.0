@@ -33,7 +33,7 @@ const Sidebar = () => {
       name: 'UserManagement',
       icon: OChartBarSquareIcon,
       activeIcon: ChartBarSquareIcon,
-      to: '/',
+      to: '/employee-list',
     },
     {
       name: 'TaskAssignment',
