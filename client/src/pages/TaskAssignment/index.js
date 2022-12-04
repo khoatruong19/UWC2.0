@@ -19,20 +19,22 @@ const TaskAssignment = () => {
         <div 
             className="conntainer p-5"
             style={{
-                marginRight: '100px',
-                width: '100%'
+                width: '100%',
+                zIndex: "0",
+                overflowY: 'scroll',
             }}
         >  
                 <h2 className='mb-4'>Task assignment</h2>
                 <div>
-                    <div 
-                        className={styles.mapContainer}
-                        style={{
-                            maxWidth: '100%',
-                            maxHeight: '350px',
-                        }}
-                    >   
-                        <AreaMap className={styles.mapSize_choose} routing areas={areas} area={area} />
+                    <div
+                    style={{
+                        width: '100%',
+                        marginTop: '1rem',
+                        position: 'relative',
+                        zIndex: '9999'
+                    }}
+                    >
+                        <AreaMap height={'450px'} areas={areas} area={area} />
                     </div>
                     <div className="mt-5">
                         <Calendar data = {janitorSchedule} />
