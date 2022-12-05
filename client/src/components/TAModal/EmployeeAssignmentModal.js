@@ -5,6 +5,7 @@ import "./hover.css"
 import { Collectors } from './Collectors';
 import ChooseRouteModal from './ChooseRouteModal';
 import styles from "./Modal.module.css";
+import JanitorTable from '../JanitorTable/JanitorTable';
 import "./CollectorTable.css"
 
 

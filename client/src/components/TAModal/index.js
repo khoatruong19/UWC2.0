@@ -42,14 +42,14 @@ const Calendar = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Workshift</TableCell>
-            <TableCell align="center">Monday</TableCell>
-            <TableCell align="center">Tuesday</TableCell>
-            <TableCell align="center">Wednesday</TableCell>
-            <TableCell align="center">Thursday</TableCell>
-            <TableCell align="center">Friday</TableCell>
-            <TableCell align="center">Saturday</TableCell>
-            <TableCell align="center">Sunday</TableCell>
+            <TableCell style={{color: "#749F82"}}>Workshift</TableCell>
+            <TableCell style={{color: "#749F82"}} align="center">Monday</TableCell>
+            <TableCell style={{color: "#749F82"}} align="center">Tuesday</TableCell>
+            <TableCell style={{color: "#749F82"}} align="center">Wednesday</TableCell>
+            <TableCell style={{color: "#749F82"}} align="center">Thursday</TableCell>
+            <TableCell style={{color: "#749F82"}} align="center">Friday</TableCell>
+            <TableCell style={{color: "#749F82"}} align="center">Saturday</TableCell>
+            <TableCell style={{color: "#749F82"}} align="center">Sunday</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

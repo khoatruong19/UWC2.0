@@ -8,7 +8,7 @@ import MCPModal from '../../components/modals/MCPModal';
 import { useSelector } from 'react-redux';
 import styles from "../../components/TAModal/Modal.module.css";
 import ChooseRouteModal from '../../components/TAModal/ChooseRouteModal';
-import { janitorSchedule } from '../../components/TAModal/EmployeeList';
+import { collectorSchedule } from '../../components/TAModal/EmployeeList';
 import JanitorTable from '../../components/JanitorTable/JanitorTable';
 
 const TaskAssignment = () => {
@@ -36,7 +36,7 @@ const TaskAssignment = () => {
                         <AreaMap height={'350px'} routing areas={areas} area={area} />
                     </div>
                     <div className="mt-5" >
-                        <Calendar style={{border: "1px solid black", borderRadius: "3px", backgroundColor: "#A8E890"}} data = {janitorSchedule} />
+                        <Calendar style={{border: "1px solid black", borderRadius: "3px", backgroundColor: "#A8E890"}} data = {collectorSchedule} />
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ const JanitorTable = ({ setOpened }) => {
   return (
 
     <div>
-      <div className={styles.darkBG} onClick={() => { setOpened(false) }} />
+      <div onClick={() => { setOpened(false) }} />
       <div className={styles.centered}>
         <div className="background">
 
