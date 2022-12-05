@@ -70,17 +70,17 @@ const ChooseRouteModal = ({ setIsOpen }) => {
                         <RiCloseLine style={{ marginBottom: "-3px" }} />
                     </button>
                     <div className={styles.modalContent}>
-                    {outMCPs.length > 0 && <button onClick={handlelUnOutMCP}><ArrowUturnLeftIcon style={{width: '1.5rem', height: '1.5rem'}} /></button>}
-                            <div className={styles.mapContainer}>
-                                <AreaMap zIndex={10} handleGetRoute={handleGetRoute} handleOutMCP = {handleOutMCP} height={'300px'} routing areas={[selectedArea]} area={area} />
-                            </div>
+                        {outMCPs.length > 0 && <button onClick={handlelUnOutMCP}><ArrowUturnLeftIcon style={{ width: '1.5rem', height: '1.5rem' }} /></button>}
+                        <div className={styles.mapContainer}>
+                            <AreaMap zIndex={10} handleGetRoute={handleGetRoute} handleOutMCP={handleOutMCP} height={'300px'} routing areas={[selectedArea]} area={area} />
+                        </div>
                         <div className={styles.formText}>
                             <Form>
                                 <Form.Group as={Row} className='mb-3' controlId='formHorizontalRoute'>
                                     <Col componentClass={Control.Label} className={styles.b4Form} sm={1}>
                                         Message
                                     </Col>
-                                    <Col sm={6}>
+                                    <Col sm={5}>
                                         <Form.Control type="text" placeholder='Ex: Road often jammed at 8 p.m.' />
                                     </Col>
                                     <Col sm={5}>
@@ -99,7 +99,7 @@ const ChooseRouteModal = ({ setIsOpen }) => {
                             </Form>
                         </div>
                         <div onClick={handleAssignRoute}>
-                            <button className={styles.checkBtn} > Assign </button>
+                            <button className={styles.checkBtn} onClick={() => setIsOpen(false)} > Assign </button>
                         </div>
                     </div>
                     <div className={styles.modalActions}>
