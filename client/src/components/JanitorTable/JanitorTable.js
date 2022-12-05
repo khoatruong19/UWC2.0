@@ -53,6 +53,7 @@ const JanitorTable = ({ setOpened }) => {
                     key={collector.id}
                     onClick={() => {
                       setOpen(false);
+                      setSelected(collector.name);
                     }
                     }>
                     <TableCell>{collector.id}</TableCell>
