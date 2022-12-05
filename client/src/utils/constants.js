@@ -1,2 +1,2 @@
 export const mainGreen = '#A8E890';
-export const mainTextColor = '#425F57';
+export const mainTextColor = '#026333';

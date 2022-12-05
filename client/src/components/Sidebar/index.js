@@ -57,7 +57,7 @@ const Sidebar = () => {
 
   return (
     <div
-      style={{ width: '100px', height: '100%' }}
+      style={{ width: '100px', height: '100%', background: '#A8E890' }}
       className="border-end border-success border-3"
     >
       <div className="d-flex justify-content-center align-items-center pt-5 mb-5">

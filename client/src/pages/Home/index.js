@@ -109,7 +109,7 @@ const Home = () => {
           <AreaMap height={'450px'} areas={areas} area={area} />
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
