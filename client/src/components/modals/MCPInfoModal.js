@@ -2,8 +2,8 @@
 import * as React from 'react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import {Box, Modal, Button, Avatar} from '@mui/material';
-import Calendar from '../Calendar';
-import { janitorSchedule } from '../Calendar/EmployeeList';
+import Calendar from '../TAModal';
+import { janitorSchedule } from '../TAModal/EmployeeList';
 import MCPicon from '../../images/recycling-place.png'
 
 const style = {

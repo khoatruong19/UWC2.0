@@ -3,8 +3,8 @@ import AuthLayout from './layouts/AuthLayout';
 import MainLayout from './layouts/MainLayout';
 import { routes } from './routes';
 import MCPInfoModal from './components/modals/MCPInfoModal';
-import Calendar from './components/Calendar';
-import { janitorSchedule } from './components/Calendar/EmployeeList';
+import Calendar from './components/TAModal';
+import { janitorSchedule } from './components/TAModal/EmployeeList';
 
 function App() {
   return (
