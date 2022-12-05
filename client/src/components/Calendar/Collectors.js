@@ -24,4 +24,34 @@ export const Collectors = [
         name: "Collector C",
         status: "Free"
     },  
+    {
+        id: 5,
+        name: "Collector C",
+        status: "Free"
+    },  
+    {
+        id: 5,
+        name: "Collector C",
+        status: "Free"
+    },  
+    {
+        id: 5,
+        name: "Collector C",
+        status: "Free"
+    },  
+    {
+        id: 5,
+        name: "Collector C",
+        status: "Free"
+    },  
+    {
+        id: 5,
+        name: "Collector C",
+        status: "Free"
+    },  
+    {
+        id: 5,
+        name: "Collector C",
+        status: "Free"
+    },  
 ]
