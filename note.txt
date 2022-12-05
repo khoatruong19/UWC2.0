@@ -1,6 +1,9 @@
 1. Change the icons for MCPs and Depot, etc.
-2. Focus onto the chosen area when clicked on the dropdown box.
-    2.1. In task assignment panel, the map only focused on the designated area.
-        2.1.1. When zoomed in, the area name has position problem;
-    2.2. In focus mode, the sidebar has fill problem.
-    2.3. Need to add interactions with MCPs.
+2. Change the color scheme of the project.
+    2.1. Add color to side-bar.
+3. In employee list, the hover-color hide the text -> change it.
+4. Upgrade the Task Assignment Interface -> change text color of workshift time.
+    4.1. MCP Info Calendar doesn't have grid.
+    4.2 In MCP Info, change shift time text color.
+    4.3 Change the color scheme of ChooseRoute.
+    4.4. Assign button close the overlay in ChooseRoute.
