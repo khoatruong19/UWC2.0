@@ -7,3 +7,4 @@
     4.2 In MCP Info, change shift time text color.
     4.3 Change the color scheme of ChooseRoute.
     4.4. Assign button close the overlay in ChooseRoute.
+5. Fill in a some Employee in the calendars.
