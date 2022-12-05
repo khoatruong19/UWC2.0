@@ -6,7 +6,7 @@ import './style.css'
 function EmployeeList() {
     const [employeeType, setEmployeeType] = React.useState('');
 
-    const handleTypeChange = (event) => {
+    const handleChange = (event) => {
         setEmployeeType(event.target.value);
     };
     return (
