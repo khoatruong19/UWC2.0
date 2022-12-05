@@ -1,9 +1,8 @@
 1. Change the icons for MCPs and Depot, etc.
-2. Change the color scheme of the project.
-    2.1. Add color to side-bar.
-3. In employee list, the hover-color hide the text -> change it.
-4. Upgrade the Task Assignment Interface -> change text color of workshift time.
-    4.1. MCP Info Calendar doesn't have grid.
-    4.2 In MCP Info, change shift time text color.
-5. Fill in a some Employee in the calendars.
-6. Change default page into Login.
+2. Change default page into Login.
+3. Modify Activity Diagram.
+4. Fix Sequence Diagram 1.
+5. Check again modules description in 3.1.2.
+6. Check Implementation Diagram.
+7. Split tasks documents, diagrams and push onto github.
+8. Finish Task 5.
