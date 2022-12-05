@@ -9,11 +9,12 @@ import {useNavigate} from "react-router-dom"
 const Home = () => {
   const [area, setArea] = useState([10.66, 106.67]);
   const areas = useSelector((state) => state.areas.areas);
+  const isAuth = useSelector(state => state.auth.isAuth)
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   navigate('/login')
-  // }, [])
+  useEffect(() => {
+    if(!isAuth) navigate('/login')
+  }, [isAuth])
 
   return (
     <div className="w-75 mx-auto" style={{ position: 'relative' }}>

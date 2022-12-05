@@ -4,6 +4,7 @@ import {
   isPlain,
 } from '@reduxjs/toolkit';
 import AreasReducer from './slices/AreasSlice';
+import AuthReducer from './slices/AuthSlice';
 import { Iterable } from 'immutable';
 
 const isNotSerializable = (value) => !Iterable.isIterable(value) || !isPlain(value);
@@ -16,6 +17,7 @@ const serializableMiddleware = createSerializableStateInvariantMiddleware({
 const store = configureStore({
   reducer: {
     areas: AreasReducer,
+    auth: AuthReducer,
   },
   middleware: [serializableMiddleware],
 });

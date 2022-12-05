@@ -4,7 +4,7 @@ import { employees } from './employees'
 import './style.css'
 
 function EmployeeList() {
-    const [employeeType, setEmployeeType] = React.useState('');
+    const [employeeType, setEmployeeType] = React.useState('All');
 
     const handleChange = (event) => {
         setEmployeeType(event.target.value);
@@ -22,17 +22,17 @@ function EmployeeList() {
             <div className="mb-2 dropdown">
 
                 <FormControl sx={{ m: 1, minWidth: 80 }}>
-                    <InputLabel id="demo-simple-select-autowidth-label">Type</InputLabel>
+                    {/* <InputLabel id="demo-simple-select-autowidth-label">Type</InputLabel> */}
                     <Select
                         labelId="demo-simple-select-autowidth-label"
                         id="demo-simple-select-autowidth"
                         value={employeeType}
                         onChange={handleChange}
                         autoWidth
-                        label="Type"
+                        defaultValue='All'
                     >
-                        <MenuItem value="">
-                            <em>None</em>
+                        <MenuItem value="All">
+                            <em>All</em>
                         </MenuItem>
                         <MenuItem value={10}>Janitor</MenuItem>
                         <MenuItem value={21}>Collector</MenuItem>

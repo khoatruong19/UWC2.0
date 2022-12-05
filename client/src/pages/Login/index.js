@@ -1,13 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../../store/slices/AuthSlice';
 import { mainTextColor } from '../../utils/constants';
 
 const Login = () => {
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleLoginSubmit = (e) => {
     e.preventDefault()
+    dispatch(login())
     navigate("/")
   }
   return (

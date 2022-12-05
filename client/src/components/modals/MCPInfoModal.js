@@ -142,9 +142,7 @@ const MCPInfoModal = ({open, setOpen}) => {
                         <TableRow key={row.workshift} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                         <TableCell>{row.workshift}</TableCell>
                         <TableCell align="center">
-                            <div onClick={open && <JanitorTable setIsOpen={setOpen} />}>
                                 {row.monday}
-                            </div>
                         </TableCell>
                         <TableCell align="center">{row.tuesday}</TableCell>
                         <TableCell align="center">{row.wednesday}</TableCell>
