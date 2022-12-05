@@ -1,7 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { mainTextColor } from '../../utils/constants';
 
 const Login = () => {
+
+  const navigate = useNavigate()
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault()
+    navigate("/")
+  }
   return (
     <div style={{ width: '500px', marginTop: '-3rem' }}>
       <h1
@@ -15,7 +23,7 @@ const Login = () => {
       >
         UWC 2.0
       </h1>
-      <form>
+      <form onSubmit={handleLoginSubmit}>
         <div
           className="pb-1.5 pt-1 px-3 flex flex-column w-100 rounded"
           style={{ backgroundColor: 'lightgreen' }}

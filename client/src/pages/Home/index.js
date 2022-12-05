@@ -4,10 +4,16 @@ import { useState, useEffect } from 'react';
 import AreaMap from '../../components/AreaMap';
 import MCPModal from '../../components/modals/MCPModal';
 import { useSelector } from 'react-redux';
+import {useNavigate} from "react-router-dom"
 
 const Home = () => {
   const [area, setArea] = useState([10.66, 106.67]);
   const areas = useSelector((state) => state.areas.areas);
+  const navigate = useNavigate()
+
+  // useEffect(() => {
+  //   navigate('/login')
+  // }, [])
 
   return (
     <div className="w-75 mx-auto" style={{ position: 'relative' }}>

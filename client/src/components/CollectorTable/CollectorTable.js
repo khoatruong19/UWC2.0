@@ -64,7 +64,7 @@ const CollectorTable = ({ setOpened, setSelected }) => {
           </div>
 
           <p className='header'>Assign Collector</p>
-          <input className='input' type="text" id="myInput" placeholder="Search by name..." />
+          <input className='inputField' type="text" id="myInput" placeholder="Search by name..." />
 
           <div class="table-container">
             {renderTable()}
