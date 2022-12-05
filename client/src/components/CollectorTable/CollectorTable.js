@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './CollectorTable.css'
+// import './CollectorTable.css'
 import styles from "../../pages/TaskAssignment/Modal.module.css"
 //import { CollectorData } from './CollectorData'
 import { color } from '@mui/system'
