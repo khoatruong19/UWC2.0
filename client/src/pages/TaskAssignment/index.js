@@ -39,7 +39,7 @@ const TaskAssignment = () => {
                         <AreaMap height={'350px'} routing areas={areas} area={area} />
                     </div>
                     <div className="mt-5" >
-                        <Calendar style={{border: "1px solid black", borderRadius: "3px"}} data = {janitorSchedule} />
+                        <Calendar style={{border: "1px solid black", borderRadius: "3px", backgroundColor: "#A8E890"}} data = {janitorSchedule} />
                     </div>
                 </div>
                 <p>
