@@ -6,7 +6,7 @@ import { Collectors } from "../TAModal/Collectors";
 
 const JanitorTable = ({ setOpened }) => {
   return (
-    
+
     <div>
       <div className={styles.darkBG} onClick={() => { setOpened(false) }} />
       <div className={styles.centered}>
@@ -23,30 +23,30 @@ const JanitorTable = ({ setOpened }) => {
           />
           <div class="table-container">
             <table className='table'>
-            <thead>
-                                    <tr>
-                                        <TableCell>#</TableCell>
-                                        <TableCell>Name</TableCell>
-                                        <TableCell>Status</TableCell>
-                                        <TableCell>Action</TableCell>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {Collectors.map((collector, index) => (
-                                        <tr
-                                            key={collector.id}
-                                            onClick={() => {
-                                            }
-                                            }>
-                                            <TableCell>{collector.id}</TableCell>
-                                            <TableCell>{collector.name}</TableCell>
-                                            <TableCell>{collector.status}</TableCell>
-                                            <TableCell onClick={() => {  }}>
-                                            <svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path d="M22 34h4v-12h-4v12zm2-30c-11.05 0-20 8.95-20 20s8.95 20 20 20 20-8.95 20-20-8.95-20-20-20zm0 36c-8.82 0-16-7.18-16-16s7.18-16 16-16 16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z"/></svg>
-                                            </TableCell>
-                                        </tr>
-                                    ))}
-                                </tbody>
+              <thead>
+                <tr>
+                  <TableCell>#</TableCell>
+                  <TableCell>Name</TableCell>
+                  <TableCell>Status</TableCell>
+                  <TableCell>Action</TableCell>
+                </tr>
+              </thead>
+              <tbody>
+                {Collectors.map((collector, index) => (
+                  <tr
+                    key={collector.id}
+                    onClick={() => {
+                    }
+                    }>
+                    <TableCell>{collector.id}</TableCell>
+                    <TableCell>{collector.name}</TableCell>
+                    <TableCell>{collector.status}</TableCell>
+                    <TableCell onClick={() => { }}>
+                      <svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none" /><path d="M22 34h4v-12h-4v12zm2-30c-11.05 0-20 8.95-20 20s8.95 20 20 20 20-8.95 20-20-8.95-20-20-20zm0 36c-8.82 0-16-7.18-16-16s7.18-16 16-16 16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z" /></svg>
+                    </TableCell>
+                  </tr>
+                ))}
+              </tbody>
 
             </table>
           </div>
