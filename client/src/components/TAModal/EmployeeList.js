@@ -1,5 +1,6 @@
 import React from 'react';
 import EmployeeAssignment from './EmployeeAssignmentModal';
+import JanitorTable from '../JanitorTable/JanitorTable';
  
 const janitors = [
     {
@@ -54,7 +55,30 @@ const collectors = [
 export const janitorSchedule = [
     {
         workshift: "6h30",
-        monday: <EmployeeAssignment employee = {janitors[0]}/>,
+        monday: <JanitorTable/>,
+        tuesday: <JanitorTable/>,
+        wednesday: <JanitorTable/>,
+        thursday: <JanitorTable/>,
+        friday: <JanitorTable/>,
+        saturday: <JanitorTable/>,
+        sunday: <JanitorTable/>
+    },
+    {
+        workshift: "7h30",
+        monday: <JanitorTable/>,
+        tuesday: <JanitorTable/>,
+        wednesday: <JanitorTable/>,
+        thursday: <JanitorTable/>,
+        friday: <JanitorTable/>,
+        saturday: <JanitorTable/>,
+        sunday: <JanitorTable/>
+    }
+]
+
+export const collectorSchedule = [
+    {
+        workshift: "6h30",
+        monday: <EmployeeAssignment/>,
         tuesday: <EmployeeAssignment />,
         wednesday: <EmployeeAssignment />,
         thursday: <EmployeeAssignment />,

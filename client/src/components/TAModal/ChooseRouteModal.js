@@ -4,7 +4,7 @@ import { RiCloseLine } from "react-icons/ri";
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
-import AreaMap from '../../components/AreaMap';
+import AreaMap from '../AreaMap';
 import { useSelector } from 'react-redux';
 import { FormControlLabel } from '@mui/material';
 import Col from 'react-bootstrap/esm/Col';
@@ -29,7 +29,7 @@ const ChooseRouteModal = ({ setIsOpen }) => {
         setSelectedArea(area)
     }
 
-    const handlelUnOutMCP = () => {
+    const handleUnOutMCP = () => {
         const lastOutMCP = outMCPs[outMCPs.length - 1]
         const newMCPs = [...selectedArea.MCPs, lastOutMCP]
         setSelectedArea(prev => ({ ...prev, MCPs: newMCPs }))
@@ -70,18 +70,17 @@ const ChooseRouteModal = ({ setIsOpen }) => {
                         <RiCloseLine style={{ marginBottom: "-3px" }} />
                     </button>
                     <div className={styles.modalContent}>
-                        {outMCPs.length > 0 && <button onClick={handlelUnOutMCP}><ArrowUturnLeftIcon style={{ width: '1.5rem', height: '1.5rem' }} /></button>}
+                        {outMCPs.length > 0 && <button onClick={handleUnOutMCP}><ArrowUturnLeftIcon style={{ width: '1.5rem', height: '1.5rem' }} /></button>}
                         <div className={styles.mapContainer}>
-                            <AreaMap handleGetRoute={handleGetRoute} handleOutMCP={handleOutMCP} height={'300px'} routing areas={[selectedArea]} area={area} />
+                            <AreaMap zIndex={10} handleGetRoute={handleGetRoute} handleOutMCP={handleOutMCP} height={'300px'} routing areas={[selectedArea]} area={area} />
                         </div>
-                   
                         <div className={styles.formText}>
                             <Form>
                                 <Form.Group as={Row} className='mb-3' controlId='formHorizontalRoute'>
                                     <Col componentClass={Control.Label} className={styles.b4Form} sm={1}>
                                         Message
                                     </Col>
-                                    <Col sm={6}>
+                                    <Col sm={5}>
                                         <Form.Control type="text" placeholder='Ex: Road often jammed at 8 p.m.' />
                                     </Col>
                                     <Col sm={5}>
@@ -100,7 +99,7 @@ const ChooseRouteModal = ({ setIsOpen }) => {
                             </Form>
                         </div>
                         <div onClick={handleAssignRoute}>
-                            <button className={styles.checkBtn} > Assign </button>
+                            <button className={styles.checkBtn} onClick={() => setIsOpen(false)} > Assign </button>
                         </div>
                     </div>
                     <div className={styles.modalActions}>
