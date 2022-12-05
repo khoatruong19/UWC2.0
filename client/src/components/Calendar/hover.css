@@ -7,3 +7,7 @@
   --p: 100%;
   color: #fff 
 }
+
+.MuiTableCell-root + .MuiTableCell-head {
+  width: 300px;
+}

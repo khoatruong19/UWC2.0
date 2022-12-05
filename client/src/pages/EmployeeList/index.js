@@ -62,14 +62,14 @@ function EmployeeList() {
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                    <TableCell component="th" scope="row">
+                    <TableCell style={{color: "white"}} component="th" scope="row">
                         {row.id}
                     </TableCell>
                     <TableCell align="center">{row.name}</TableCell>
                     <TableCell align="center">{row.age}</TableCell>
                     <TableCell align="center">{row.address}</TableCell>
                     <TableCell align="center">{row.phonenumber}</TableCell>
-                    <TableCell align="center" style={{display: "flex"}}>
+                    <TableCell align="center" style={{display: "flex", height: "65.6px"}}>
                         <div className="icons-flex-container" style={{display: "flex", margin: "0 auto"}}>
                             <div className="pencil-icon">
                                 <svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3 18L15 6l3 3L6 21H3v-3ZM16 5l2-2l3 3l-2.001 2.001L16 5Z"/></svg>

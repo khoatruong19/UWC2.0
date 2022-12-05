@@ -58,7 +58,7 @@ const Calendar = (props) => {
                     key={row.workshift}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                    <TableCell component="th" scope="row">
+                    <TableCell>
                         {row.workshift}
                     </TableCell>
                     <TableCell align="center">{row.monday}</TableCell>
