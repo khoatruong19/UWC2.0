@@ -55,23 +55,23 @@ const collectors = [
 export const janitorSchedule = [
     {
         workshift: "6h30",
-        monday: <JanitorTable open={true}/>,
-        tuesday: <JanitorTable open={true}/>,
-        wednesday: <JanitorTable open={true}/>,
-        thursday: <JanitorTable open={true}/>,
-        friday: <JanitorTable open={true}/>,
-        saturday: <JanitorTable open={true}/>,
-        sunday: <JanitorTable open={true}/>
+        monday: <JanitorTable/>,
+        tuesday: <JanitorTable/>,
+        wednesday: <JanitorTable/>,
+        thursday: <JanitorTable/>,
+        friday: <JanitorTable/>,
+        saturday: <JanitorTable/>,
+        sunday: <JanitorTable/>
     },
     {
         workshift: "7h30",
-        monday: <JanitorTable open={true}/>,
-        tuesday: <JanitorTable open={true}/>,
-        wednesday: <JanitorTable open={true}/>,
-        thursday: <JanitorTable open={true}/>,
-        friday: <JanitorTable open={true}/>,
-        saturday: <JanitorTable open={true}/>,
-        sunday: <JanitorTable open={true}/>
+        monday: <JanitorTable/>,
+        tuesday: <JanitorTable/>,
+        wednesday: <JanitorTable/>,
+        thursday: <JanitorTable/>,
+        friday: <JanitorTable/>,
+        saturday: <JanitorTable/>,
+        sunday: <JanitorTable/>
     }
 ]
 
