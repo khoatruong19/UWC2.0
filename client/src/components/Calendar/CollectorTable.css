@@ -26,6 +26,7 @@
 table thead {
   flex: 0 0 auto;
   width: calc(100% - 0.9em);
+  background-color: #425f58;
 }
 table tbody {
   flex: 1 1 auto;

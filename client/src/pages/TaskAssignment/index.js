@@ -9,13 +9,10 @@ import { useSelector } from 'react-redux';
 import styles from "./Modal.module.css";
 import ChooseRouteModal from './ChooseRouteModal';
 import { janitorSchedule } from '../../components/Calendar/EmployeeList';
-import JanitorTable from '../../components/JanitorTable/JanitorTable';
 
 const TaskAssignment = () => {
     const [area, setArea] = useState([10.66, 106.67]);
     const areas = useSelector((state) => state.areas.areas);
-    const [opened, setOpened] = useState(false);
-
     return (
         <div 
             className="conntainer p-5"
@@ -42,10 +39,6 @@ const TaskAssignment = () => {
                         <Calendar data = {janitorSchedule} />
                     </div>
                 </div>
-                <p>
-                <button className={styles.primaryBtn} onClick={() => setOpened(true)}> Open Modal 2 </button>
-                {opened && < JanitorTable setOpened={setOpened} />}
-            </p>
         </div>
     )
 };

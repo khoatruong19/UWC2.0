@@ -1,13 +1,16 @@
+import { red } from "@mui/material/colors";
+
 export const Collectors = [
     {
         id: 1,
         name: "Truong Tan Hao Hiep",
-        status: "Free"
+        status: "Assign"
     },
     {
         id: 2,
         name: "Le Phuoc Gia Loc",
         status: "Free"
+        
     },
     {
         id: 3,
