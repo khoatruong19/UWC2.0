@@ -6,9 +6,9 @@ import './style.css'
 function EmployeeList() {
     const [employeeType, setEmployeeType] = React.useState('');
 
-    const handleChange = (event) => {
+    const handleTypeChange = (event) => {
         setEmployeeType(event.target.value);
-    };    
+    };  
   return (
     <div 
         className="conntainer p-5"
@@ -27,7 +27,7 @@ function EmployeeList() {
                 labelId="demo-simple-select-autowidth-label"
                 id="demo-simple-select-autowidth"
                 value={employeeType}
-                onChange={handleChange}
+                onChange={handleTypeChange}
                 autoWidth
                 label="Type"
                 >
