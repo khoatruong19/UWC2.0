@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import styles from "../../pages/TaskAssignment/Modal.module.css"
+import styles from "../TAModal/Modal.module.css"
 import { Box, Modal, Button, table, thead, tr, TableCell, tbody } from '@mui/material';
-import { Collectors } from "../../components/Calendar/Collectors";
+import { Collectors } from "../TAModal/Collectors";
 
 
 const JanitorTable = ({ setOpened }) => {
