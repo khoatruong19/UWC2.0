@@ -4,7 +4,7 @@ import { RiCloseLine } from "react-icons/ri";
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
-import AreaMap from '../../components/AreaMap';
+import AreaMap from '../AreaMap';
 import { useSelector } from 'react-redux';
 import { FormControlLabel } from '@mui/material';
 import Col from 'react-bootstrap/esm/Col';

@@ -3,8 +3,8 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 import { Box, Modal, Button, table, thead, tr, TableCell, tbody } from '@mui/material';
 import "./hover.css"
 import { Collectors } from './Collectors';
-import ChooseRouteModal from '../../pages/TaskAssignment/ChooseRouteModal';
-import styles from "../../pages/TaskAssignment/Modal.module.css";
+import ChooseRouteModal from './ChooseRouteModal';
+import styles from "./Modal.module.css";
 import "./CollectorTable.css"
 
 

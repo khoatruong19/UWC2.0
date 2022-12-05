@@ -1,9 +1,7 @@
 .MuiTableCell-root + .MuiTableCell-body {
-    color: inherit;
     font-weight: 500;
 }
 
 th.css-1ex1afd-MuiTableCell-root {
-    color: white;
     font-weight: 500;
 }
