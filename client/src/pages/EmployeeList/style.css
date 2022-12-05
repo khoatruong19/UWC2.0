@@ -1,5 +1,4 @@
-.MuiTableCell-root + .MuiTableCell-body {
-    color: inherit;
+.MuiTableCell-root+.MuiTableCell-body {
     font-weight: 500;
 }
 

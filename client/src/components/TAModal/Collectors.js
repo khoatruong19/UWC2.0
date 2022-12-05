@@ -1,3 +1,5 @@
+import { red } from "@mui/material/colors";
+
 export const Collectors = [
     {
         id: 1,
