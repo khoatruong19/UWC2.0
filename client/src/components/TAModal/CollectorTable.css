@@ -8,11 +8,12 @@
 }
 
 .closeButton {
-  display:flex;
+  display: flex;
   justify-content: right;
   background-color: white;
   border: none;
 }
+
 .table {
   background-color: #a8e890;
   border-radius: 5px;
@@ -20,21 +21,26 @@
   flex-flow: column;
   height: 100%;
 }
+
 .table-container {
   height: 23em;
 }
+
 table thead {
   flex: 0 0 auto;
   width: calc(100% - 0.9em);
+  background-color: #425f58;
 }
+
 table tbody {
   flex: 1 1 auto;
   display: block;
   overflow-y: scroll;
-  
+
 }
 
-table thead, table tbody tr {
+table thead,
+table tbody tr {
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -68,16 +74,20 @@ table thead, table tbody tr {
   width: 100%;
   border-radius: 5px;
 }
-.class1{
+
+.class1 {
   color: red;
 }
-th{
-  border:1px solid black;
+
+th {
+  border: 1px solid black;
 }
-td{
-  border:1px solid black;
+
+td {
+  border: 1px solid black;
 }
-tr:hover{
-  background-color:beige;
-  cursor:pointer;
+
+tr:hover {
+  background-color: beige;
+  cursor: pointer;
 }

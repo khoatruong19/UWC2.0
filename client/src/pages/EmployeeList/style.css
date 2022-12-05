@@ -1,4 +1,4 @@
-.MuiTableCell-root + .MuiTableCell-body {
+.MuiTableCell-root+.MuiTableCell-body {
     font-weight: 500;
 }
 

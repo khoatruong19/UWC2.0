@@ -1,8 +1,10 @@
+import { red } from "@mui/material/colors";
+
 export const Collectors = [
     {
         id: 1,
         name: "Truong Tan Hao Hiep",
-        status: "Free"
+        status: "Assigned"
     },
     {
         id: 2,
@@ -11,11 +13,26 @@ export const Collectors = [
     },
     {
         id: 3,
+        name: "Nguyen Pham Hoang Vu",
+        status: "Assigned"
+    },
+    {
+        id: 4,
+        name: "Nguyen Truong Dang Khoa",
+        status: "Assigned"
+    },
+    {
+        id: 5,
+        name: "Nguyen Quoc Huy",
+        status: "Assigned"
+    },
+    {
+        id: 5,
         name: "Collector A",
         status: "Free"
     },
     {
-        id: 4,
+        id: 5,
         name: "Collector B",
         status: "Free"
     },
@@ -23,35 +40,20 @@ export const Collectors = [
         id: 5,
         name: "Collector C",
         status: "Free"
-    },  
+    },
     {
         id: 5,
-        name: "Collector C",
+        name: "Collector D",
         status: "Free"
-    },  
+    },
     {
         id: 5,
-        name: "Collector C",
-        status: "Free"
-    },  
+        name: "Duy Socket",
+        status: "Assigned"
+    },
     {
         id: 5,
-        name: "Collector C",
+        name: "Do Lok Lok",
         status: "Free"
-    },  
-    {
-        id: 5,
-        name: "Collector C",
-        status: "Free"
-    },  
-    {
-        id: 5,
-        name: "Collector C",
-        status: "Free"
-    },  
-    {
-        id: 5,
-        name: "Collector C",
-        status: "Free"
-    },  
+    },
 ]
