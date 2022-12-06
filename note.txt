@@ -1,6 +1,0 @@
-1. Change the icons for MCPs and Depot, etc.
-2. Change default page into Login.
-5. Check again modules description in 3.1.2.
-6. Check Implementation Diagram.
-7. Split tasks documents, diagrams and push onto github.
-8. Finish Task 5.
